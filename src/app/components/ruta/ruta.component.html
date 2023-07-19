@@ -1,0 +1,21 @@
+
+<hr>
+<h1>{{rutas.CiudadOrigen}} <small> en dirección a {{rutas.CiudadDestino}}</small></h1>
+<hr>
+<div class="row">
+    <div class="col-md-8">
+        <h3>Precio: {{rutas.Precio}}</h3>
+        <hr>
+        <p>
+            {{rutas.Descripcion}}
+        </p>
+        <div *ngIf="rutas.Tipo === 'Interno'; else Externo">
+            <p class="card-text"><small class="text-body-secondary">Interno</small></p>
+          </div>
+          <ng-template #Externo>
+            <p class="card-text"><small class="text-body-secondary">Externo</small></p>
+          </ng-template>
+          
+        
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" >Terminal Machala</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="quienes-somos" routerLinkActive="quienes-somos">Quienes Somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="rutas" routerLinkActive="rutas">Rutas</a>
+          </li>
+        </ul>
+        <div class="navbar-search">    
+          <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar Rutas" class="search-input">
+          <button class="search-button" (click)="buscar()">Buscar</button> 
+      </div>  
+      </div>
+    </div>
+  </nav>
+
+  
+<div *ngIf="searchResult.length > 0" class="search-results-container">
+  <hr>
+  <h3>Resultados de búsqueda:</h3>
+  <div class="search-results">
+    <div *ngFor="let rutas of searchResult" class="search-result">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{rutas.CiudadOrigen}} en direción a {{rutas.CiudadDestino}} </h5> 
+          <h5 class="card-title">Precio: {{rutas.Precio}} </h5>{{rutas.Descripcion}}
+          <p class="card-text"></p>
+          <p class="card-text"><small class="text-body-secondary">{{rutas.Tipo}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
